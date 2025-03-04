@@ -74,6 +74,13 @@ fn main() {
     secondfunparam(5);
     thirdfunction(5, 6);
     practise_stringliteral();
+
+    tuple_practice();
+
+    let num1: u8 = 5;
+
+    let result: u8 = withreturntype(num1);
+    println!("The result is: {}", result);
 }
 
 // first function without paramameters
@@ -117,4 +124,29 @@ fn practise_stringliteral() {
 
     // if we declare String variable then we need to change it to the String type like -> String::from("testminer2")
     // the &str wont work for the dynamic type string.
+    let class_name = "hari";
+
+    println!("{}", class_name);
+
+    let class_name = String::from("hari krishna");
+    println!("{}", class_name);
+}
+
+fn tuple_practice() {
+    println!("Hello, from the tuple practice function!");
+    let emp_info: (&str, u8) = ("Hari", 24);
+    println!(
+        "the employe name is {}, and the age is {}",
+        emp_info.0, emp_info.1
+    );
+    let (empoloyeename, employeeage) = emp_info;
+
+    println!(
+        "the employe name is {}, and the age is {}",
+        empoloyeename, employeeage
+    );
+}
+// function name (variable:datatype)->returntype{return variable;}
+fn withreturntype(age: u8) -> u8 {
+    return age;
 }
