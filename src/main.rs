@@ -1,3 +1,5 @@
+const GLOBAL_VARIABLE: &str = "saga";
+
 fn main() {
     println!("Hello, world!");
 
@@ -81,6 +83,9 @@ fn main() {
 
     let result: u8 = withreturntype(num1);
     println!("The result is: {}", result);
+    print_globalariable();
+
+    ownership_example();
 }
 
 // first function without paramameters
@@ -149,4 +154,24 @@ fn tuple_practice() {
 // function name (variable:datatype)->returntype{return variable;}
 fn withreturntype(age: u8) -> u8 {
     return age;
+}
+
+// lets dive into the memory management of the rust.
+// the static variables are stored in the stack and dynamic variable are stored in the heap.
+
+fn print_globalariable() {
+    println!("global variable {}", GLOBAL_VARIABLE)
+}
+
+fn ownership_example() {
+    let s1 = String::from("hello");
+    let s2 = s1;
+    // println!("{}", s1); // this will give an error
+    println!("{}", s2);
+    // this will give an error because the ownership of the s1 is moved to s2
+    // println!("{}", s1);
+    // as we  know that the String type a dynamic variable allocates the memeory in the heap soo if the memory is allocated for the given variable then the pointer is pointing to the allocated memory of that variable and s1 is the owner of that value (hello world !).soo when we try to access the variable s1 after the ownership is moved to s2 then it will give an error because the ownership of the value is moved to s2.
+    // the ownership of the value is moved to the s2 soo the value of the s1 is not valid anymore.
+
+    // but in case of int, &str ,float there wont be the rule of the ownership.
 }
