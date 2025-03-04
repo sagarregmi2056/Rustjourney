@@ -14,8 +14,9 @@ fn main() {
     println!("The value of age is: {}", age);
 
     let mut x = 1;
+    println!("The value of x before: {}", x);
     x = x + 1;
-    println!("The value of x is: {}", x);
+    println!("The value of x after: {}", x);
 
     // mutable variable
     // let mut x = 5;
@@ -49,4 +50,71 @@ fn main() {
     // println!("Maximum points is: {}", MAX_POINTS);
     // // MAX_POINTS = 101; // this will give an error
     // println!("The value of y is: {}", y);
+
+    // data types
+    // there are four scalar types: integers, floating-point numbers, Booleans, and characters
+
+    // integer types
+    //    // let age = 42; // default integer type is i32
+    // check the type of the age value
+    // println!("The type of age is: {}", std::any::type_name_of_val(&age));
+
+    // conditional statements
+
+    // let x: i32 = 5;
+    // if x < 5 {
+    //     println!("x is less than 5");
+    // } else if x == 5 {
+    //     println!("x is equal to 5");
+    // } else {
+    //     println!("x is greater than 5");
+    // }
+
+    firstfunctions();
+    secondfunparam(5);
+    thirdfunction(5, 6);
+    practise_stringliteral();
+}
+
+// first function without paramameters
+fn firstfunctions() {
+    println!("Hello, from the first function!");
+}
+
+// remember to define a type in the parameters
+fn secondfunparam(x: i32) {
+    // x = x + 1;
+    println!("Hello, from the second function with parameters: {}", x);
+}
+
+fn thirdfunction(x: i32, y: i32) {
+    let z = x + y;
+    println!("Hello, from the third function with parameters: {}", z);
+}
+
+// testminer1
+
+//generate    prompt miner nepal is in asia  nepal is in a 0.1
+// testminer2 prompt miner nepal is in as  0.2
+//
+// validator1    nepal is in asia ,nepal is in asia
+// validator1
+
+fn practise_stringliteral() {
+    let mut my_name: &str = "testminer1";
+
+    let mero_name: String = String::from("testminer2");
+
+    println!("{}", mero_name);
+
+    print!("{}", my_name);
+    my_name = "testminer2";
+
+    println!("{}", my_name);
+
+    // what we need to understand here is
+    // if we declare some string variable without specifying the variable type then it will be the default string type which is &str
+
+    // if we declare String variable then we need to change it to the String type like -> String::from("testminer2")
+    // the &str wont work for the dynamic type string.
 }
