@@ -92,6 +92,9 @@ fn main() {
     borrowing_practise();
 
     refrence();
+    array_practise();
+
+    passing_array();
 }
 
 // first function without paramameters
@@ -193,6 +196,8 @@ fn clone_practise() {
 }
 
 fn borrowing_practise() {
+    // also called mutable reference
+
     // to overcome the copy of the ownership of the variables we are going to use the refrence operator to borrow the ownership for the certain time
 
     let mut s1 = String::from("hello from the borrowing project ");
@@ -229,4 +234,37 @@ fn refrence() {
     println!("the address of y is {:p}", y);
     // the actual address of the y
     println!("the address of y is now {:p}", &y);
+}
+
+fn array_practise() {
+    let mut array1;
+    array1 = [1, 2, 3, 4, 5];
+
+    println!("{}", array1[0]);
+
+    array1[3] = 10;
+
+    println!("{:?}", array1);
+
+    println!("{:?}", array1.len());
+}
+
+fn passing_array() {
+    let mut array1: [&str; 5] = ["hello", "world", "from", "the", "array"];
+
+    write_array(array1);
+
+    mutable_array(&mut array1);
+
+    println!("array1 after completing modification{:?}", array1);
+}
+
+fn write_array(mut array11: [&str; 5]) {
+    array11[0] = "sagar";
+    println!("the array after modification{:?}", array11);
+}
+
+fn mutable_array(arr4: &mut [&str; 5]) {
+    arr4[0] = "sagar";
+    println!("the array after modification{:?}", arr4);
 }
