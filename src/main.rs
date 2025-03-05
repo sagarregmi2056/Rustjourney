@@ -86,6 +86,10 @@ fn main() {
     print_globalariable();
 
     ownership_example();
+
+    clone_practise();
+
+    borrowing_practise();
 }
 
 // first function without paramameters
@@ -174,4 +178,35 @@ fn ownership_example() {
     // the ownership of the value is moved to the s2 soo the value of the s1 is not valid anymore.
 
     // but in case of int, &str ,float there wont be the rule of the ownership.
+}
+
+// clone in rust
+
+fn clone_practise() {
+    let s1 = String::from("hello from the clone project ");
+    // this will create a copy of the s1 and reflect it on s2 but this approach uses the memeory inefficiently
+
+    let s2 = s1.clone();
+    println!("{}", s2);
+}
+
+fn borrowing_practise() {
+    // to overcome the copy of the ownership of the variables we are going to use the refrence operator to borrow the ownership for the certain time
+
+    let mut s1 = String::from("hello from the borrowing project ");
+
+    // here we are borrowing ownership from the s1 to s2 using refrence operator
+    let s2 = &mut s1;
+    s2.push_str("hello world");
+
+    // yaha samma s1 ko sapati s2 ley ligyako xa
+
+    let s3 = &mut s1;
+    // aba s3 ko sapati s3 ley ligyo
+
+    s3.push_str("hello nepal");
+
+    // s2 ta ailya empty xa because s3 ley ownership ligyako xa
+
+    println!("{} ", s2);
 }
