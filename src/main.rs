@@ -90,6 +90,8 @@ fn main() {
     clone_practise();
 
     borrowing_practise();
+
+    refrence();
 }
 
 // first function without paramameters
@@ -199,8 +201,12 @@ fn borrowing_practise() {
     let s2 = &mut s1;
     s2.push_str("hello world");
 
-    // yaha samma s1 ko sapati s2 ley ligyako xa
+    println!("{}", s2);
 
+    // here we are writing operation at the same time by borrowing
+
+    // yaha samma s1 ko sapati s2 ley ligyako xa
+    // read operation is possible at the same time or write and read is possible
     let s3 = &mut s1;
     // aba s3 ko sapati s3 ley ligyo
 
@@ -208,5 +214,19 @@ fn borrowing_practise() {
 
     // s2 ta ailya empty xa because s3 ley ownership ligyako xa
 
-    println!("{} ", s2);
+    println!("{} ", s3);
+}
+
+fn refrence() {
+    let x = 30;
+
+    println!("the address of x is {:p}", &x);
+
+    // &x is the refrence of the x value address
+    let y = &x;
+
+    // here we are printing the address value of the x value address
+    println!("the address of y is {:p}", y);
+    // the actual address of the y
+    println!("the address of y is now {:p}", &y);
 }
