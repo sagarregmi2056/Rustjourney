@@ -1,3 +1,4 @@
+use std::io;
 const GLOBAL_VARIABLE: &str = "saga";
 
 fn main() {
@@ -95,6 +96,16 @@ fn main() {
     array_practise();
 
     passing_array();
+
+    vector_practise();
+    if_else_practise();
+    loop_practise();
+    while_practise();
+    for_practise();
+
+    match_keyword();
+
+    input_output();
 }
 
 // first function without paramameters
@@ -267,4 +278,87 @@ fn write_array(mut array11: [&str; 5]) {
 fn mutable_array(arr4: &mut [&str; 5]) {
     arr4[0] = "sagar";
     println!("the array after modification{:?}", arr4);
+}
+
+fn vector_practise() {
+    // declaration of the vector dynamic array
+
+    // let mut v: Vec<i32> = Vec::new();
+
+    // initialization of the vector dynamic array
+
+    let mut v = vec![1, 2, 3, 4, 5];
+    let mut vector_name: Vec<&str> = Vec::new();
+    vector_name.push("sagar");
+    vector_name.push("hari");
+    vector_name.push("krishna");
+    println!("{:?}", vector_name);
+
+    v.push(1);
+    v.push(2);
+    v.push(3);
+    println!("{:?}", v);
+}
+
+fn if_else_practise() {
+    let x = 5;
+    // remember there is no paranthese in the if else statement
+    if x > 5 {
+        println!("x is greater than 5");
+    } else if x == 5 {
+        println!("x is equal to 5");
+    } else {
+        println!("x is less than 5");
+    }
+}
+
+fn loop_practise() {
+    let mut i = 0;
+    loop {
+        println!("the value of i is: {}", i);
+        i = i + 1;
+        if i == 5 {
+            break;
+        }
+    }
+}
+
+fn while_practise() {
+    let mut i = 0;
+    while i < 5 {
+        println!("the value of i is: {}", i);
+        i = i + 1;
+    }
+}
+
+fn for_practise() {
+    let a = [1, 2, 3, 4, 5];
+    for element in a.iter() {
+        println!("the value of element is: {}", element);
+    }
+}
+
+fn match_keyword() {
+    let x = 10;
+    match x {
+        1 | 2 => println!("one"),
+        7 => println!("two"),
+        3 => println!("three"),
+        4 => println!("four"),
+        5 => println!("five"),
+        // default value
+        _ => println!("other"),
+    }
+}
+
+fn input_output() {
+    // taking input from the user
+    let mut input = String::new();
+    println!("Enter your name: ");
+
+    // mutable soo we are making refrence to the mutable variable
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read line");
+    println!("Your name is: {}", input);
 }
